@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Material extends Model
 {
@@ -35,15 +35,15 @@ class Material extends Model
         return $this->belongsToMany(Purchase::class)
             ->using(MaterialPurchase::class)
             ->withTimestamps()
-            ->withPivot(['quantity','unit_id','currency_id','rate_to','rate','cost']);
+            ->withPivot(['quantity', 'unit_id', 'currency_id', 'rate_to', 'rate', 'cost']);
     }
 
     public function defaultUnit()
     {
         return $this
-                ->units()
-                ->wherePivot('is_default', 1)
-                ->first()?->name ?? __('locale.None');
+            ->units()
+            ->wherePivot('is_default', 1)
+            ->first()?->name ?? __('locale.None');
     }
 
     public function getType()

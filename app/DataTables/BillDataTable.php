@@ -4,21 +4,18 @@ namespace App\DataTables;
 
 use App\Models\Bill;
 use App\Models\Cashier;
-use App\Models\Manufacturing;
 use App\Models\Purchase;
 use App\Models\Sale;
-use SebastianBergmann\CodeCoverage\Report\Xml\Totals;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
 
 class BillDataTable extends DataTable
 {
     /**
      * Build DataTable class.
-     * @param mixed $query Results from query() method.
+     *
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -27,9 +24,10 @@ class BillDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('action', function ($bill) {
                 $cashiers = Cashier::all();
-                $type = lcfirst(explode('\\',$bill->billable_type)[2]);
+                $type = lcfirst(explode('\\', $bill->billable_type)[2]);
+
                 return view('utils.bill_transaction',
-                compact('bill','cashiers','type'));
+                    compact('bill', 'cashiers', 'type'));
             })
             ->addColumn('billable_type', function ($bill) {
                 return $bill->get_type;
@@ -43,21 +41,20 @@ class BillDataTable extends DataTable
             ->addColumn('total', function ($bill) {
                 return $bill->item?->total();
             })
-            ->addColumn('created_at',function($bill){
+            ->addColumn('created_at', function ($bill) {
                 return $bill->created_at->diffForHumans();
-            })
-            ;
+            });
     }
 
     /**
      * Get query source of dataTable.
-     * @param \App\Models\Bill $model
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Bill $model)
     {
-        return $model->with(['transaction'])->whereIn('billable_type',[Sale::class,Purchase::class]);
-    }    
+        return $model->with(['transaction'])->whereIn('billable_type', [Sale::class, Purchase::class]);
+    }
 
     /**
      * Optional method if you want to use html builder.
@@ -79,6 +76,7 @@ class BillDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -118,6 +116,6 @@ class BillDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Bill_' . date('YmdHis');
+        return 'Bill_'.date('YmdHis');
     }
 }

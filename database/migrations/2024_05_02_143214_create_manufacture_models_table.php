@@ -19,7 +19,7 @@ class CreateManufactureModelsTable extends Migration
     {
         Schema::create('manufacture_models', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Material::class,'manufactured_id')->nullable();
+            $table->foreignIdFor(Material::class, 'manufactured_id')->nullable();
             $table->foreignIdFor(Material::class)->nullable();
             $table->foreignIdFor(Inventory::class)->nullable();
             $table->integer('quantity')->default(0);

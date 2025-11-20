@@ -6,15 +6,13 @@ use App\Models\AccountType;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
 
 class AccountTypeDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -24,7 +22,7 @@ class AccountTypeDataTable extends DataTable
             ->addColumn('action', function ($type) {
                 return view('utils.datatable_options', [
                     'route' => route('accountType.show', $type->id),
-                    'options' => [] 
+                    'options' => [],
                 ]);
             })
             ->addColumn('created_at', function ($type) {
@@ -35,7 +33,6 @@ class AccountTypeDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\AccountType $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(AccountType $model)
@@ -63,6 +60,7 @@ class AccountTypeDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -98,6 +96,6 @@ class AccountTypeDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'AccoutType_' . date('YmdHis');
+        return 'AccoutType_'.date('YmdHis');
     }
 }

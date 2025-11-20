@@ -5,17 +5,16 @@ namespace App\DataTables;
 use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class UserDataTable extends DataTable
 {
     protected $actions = ['newUser'];
+
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -27,9 +26,9 @@ class UserDataTable extends DataTable
                 return $user->getSetting('phone_number');
             })
             ->addColumn('action', function ($user) {
-                return view('utils.datatable_options',[
-                    'route'=>route('user.show',$user->id),
-                    'options'=>[]
+                return view('utils.datatable_options', [
+                    'route' => route('user.show', $user->id),
+                    'options' => [],
                 ]);
             })
             ->addColumn('created_at', function ($user) {
@@ -40,7 +39,6 @@ class UserDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(User $model)
@@ -68,6 +66,7 @@ class UserDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -75,7 +74,6 @@ class UserDataTable extends DataTable
             Button::make('copy')->addClass($btn_class),
         ];
     }
-
 
     /**
      * Get columns.
@@ -107,6 +105,6 @@ class UserDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Users_' . date('YmdHis');
+        return 'Users_'.date('YmdHis');
     }
 }

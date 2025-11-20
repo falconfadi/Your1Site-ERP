@@ -13,8 +13,7 @@ class UnitSeeder extends Seeder
      */
     public function run()
     {
-        if( is_null( \App\Models\Unit::first() ) )
-        {
+        if (is_null(\App\Models\Unit::first())) {
             \App\Models\Unit::factory()->ton()->create();
             \App\Models\Unit::factory()->kilo()->create();
             \App\Models\Unit::factory()->gram()->create();

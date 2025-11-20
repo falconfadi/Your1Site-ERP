@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\Helper;
 use App\Models\User;
 use App\Models\UserSetting;
 use Illuminate\Http\Request;
@@ -42,7 +41,8 @@ class HomeController extends Controller
             'new_password' => ['required', 'string', 'confirmed'],
         ]);
         if (Hash::check($request->old_password, $user->password)) {
-            $user->update(['password' => Hash::make($request->new_password)]);;
+            $user->update(['password' => Hash::make($request->new_password)]);
+
             return redirect('/')->with('success', 'password Changed');
         } else {
             return redirect('/')->with('error', 'old password dont match our records');
@@ -57,13 +57,14 @@ class HomeController extends Controller
             'verticalMenuNavbarType' => $request->navType,
         ];
         foreach ($data as $key => $value) {
-            if (!is_null($value)) {
+            if (! is_null($value)) {
                 UserSetting::updateOrCreate(['key' => $key], [
                     'user_id' => auth()->user()->id,
                     'value' => $value,
                 ]);
             }
         }
+
         return redirect()->back()->with('success', 'theme stored');
     }
 }

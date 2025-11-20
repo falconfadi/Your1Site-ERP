@@ -1,9 +1,7 @@
 <?php
 
-use App\Models\Currency;
 use App\Models\Inventory;
 use App\Models\Material;
-use App\Models\Unit;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

@@ -6,15 +6,13 @@ use App\Models\Cashier;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
 
 class CashierDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -26,11 +24,11 @@ class CashierDataTable extends DataTable
                     'route' => route('cashier.show', $cashier->id),
                     'options' => [
                         [
-                            'route' => route('ledger.all',['cashier_id'=>$cashier->id]),
+                            'route' => route('ledger.all', ['cashier_id' => $cashier->id]),
                             'name' => __('locale.Ledgers'),
                         ],
                         [
-                            'route' => route('ledger.today',['cashier_id'=>$cashier->id]),
+                            'route' => route('ledger.today', ['cashier_id' => $cashier->id]),
                             'name' => __('locale.Today ledger'),
                         ],
                     ],
@@ -41,14 +39,12 @@ class CashierDataTable extends DataTable
             })
             ->addColumn('created_at', function ($cashier) {
                 return $cashier->created_at->diffForHumans();
-            })
-        ;
+            });
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Cashier $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Cashier $model)
@@ -76,6 +72,7 @@ class CashierDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -112,6 +109,6 @@ class CashierDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Cashier_' . date('YmdHis');
+        return 'Cashier_'.date('YmdHis');
     }
 }

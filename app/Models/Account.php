@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'type',
         'accountable_id',

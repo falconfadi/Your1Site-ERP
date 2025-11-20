@@ -29,11 +29,13 @@ class Sale extends Model
             ->where('billable_type', get_class($this));
     }
 
-    public function total(){
+    public function total()
+    {
         $total = 0;
-        foreach($this->materials as $material){
+        foreach ($this->materials as $material) {
             $total += $material->pivot->quantity * $material->pivot->cost;
         }
+
         return $total;
     }
 

@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Models\Inventory;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class InventoryDataTable extends DataTable
@@ -14,7 +12,7 @@ class InventoryDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -22,31 +20,29 @@ class InventoryDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function ($inventory) {
-                return view('utils.datatable_options',[
-                    'route'=>route('inventory.show',$inventory->id),
-                    'options'=>[]
-                    ]
+                return view('utils.datatable_options', [
+                    'route' => route('inventory.show', $inventory->id),
+                    'options' => [],
+                ]
                 );
             })
             ->addColumn('status', function ($inventory) {
                 return $inventory->status();
             })
             ->addColumn('materials', function ($inventory) {
-                return !is_null($inventory->materials) ? $inventory->materials()->count() : 0;
+                return ! is_null($inventory->materials) ? $inventory->materials()->count() : 0;
             })
             ->addColumn('default', function ($inventory) {
                 return $inventory->is_default ? __('locale.Default') : '-';
             })
             ->addColumn('created_at', function ($inventory) {
                 return $inventory->created_at->diffForHumans();
-            })
-            ;
+            });
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Inventory $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Inventory $model)
@@ -73,6 +69,7 @@ class InventoryDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -111,6 +108,6 @@ class InventoryDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Inventory_' . date('YmdHis');
+        return 'Inventory_'.date('YmdHis');
     }
 }

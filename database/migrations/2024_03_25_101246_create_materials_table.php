@@ -18,7 +18,7 @@ class CreateMaterialsTable extends Migration
             $table->id();
             $table->string('name');
             $table->smallInteger('type')->default('1');
-            $table->foreignIdFor(Material::class,'main_material')->nullable();
+            $table->foreignIdFor(Material::class, 'main_material')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

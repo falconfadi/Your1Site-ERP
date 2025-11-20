@@ -6,15 +6,13 @@ use App\Models\Sale;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
 
 class SaleDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -22,9 +20,9 @@ class SaleDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function ($sale) {
-                return view('utils.datatable_options',[
-                    'route'=>route('sale.show',$sale->id),
-                    'options'=>[]
+                return view('utils.datatable_options', [
+                    'route' => route('sale.show', $sale->id),
+                    'options' => [],
                 ]);
             })
             ->addColumn('client', function ($sale) {
@@ -42,16 +40,14 @@ class SaleDataTable extends DataTable
             ->addColumn('bill', function ($sale) {
                 return $sale->bill?->serial ?? '';
             })
-            ->addColumn('created_at',function($sale){
+            ->addColumn('created_at', function ($sale) {
                 return $sale->created_at->diffForHumans();
-            })
-            ;
+            });
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Sale $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Sale $model)
@@ -79,6 +75,7 @@ class SaleDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -117,6 +114,6 @@ class SaleDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Sale_' . date('YmdHis');
+        return 'Sale_'.date('YmdHis');
     }
 }

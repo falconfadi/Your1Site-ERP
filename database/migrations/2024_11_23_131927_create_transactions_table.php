@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Bill;
 use App\Models\Cashier;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -25,7 +24,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('amount')->default(0);
             $table->integer('remaining')->default(0);
             $table->boolean('is_payed')->default(false);
-            $table->foreignIdFor(User::class,'created_by');
+            $table->foreignIdFor(User::class, 'created_by');
             $table->timestamps();
             $table->softDeletes();
         });

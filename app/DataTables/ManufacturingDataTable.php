@@ -6,35 +6,33 @@ use App\Models\Manufacturing;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
 
 class ManufacturingDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', function($manufacturing){
-                return view('utils.datatable_options',[
-                    'route'=>route('manufacturing.show',$manufacturing->id),
-                    'options'=>[]
+            ->addColumn('action', function ($manufacturing) {
+                return view('utils.datatable_options', [
+                    'route' => route('manufacturing.show', $manufacturing->id),
+                    'options' => [],
                 ]);
             })
-            ->addColumn('material',function($manufacturing){
-                return $manufacturing->material?->name ?? __('locale.None'); 
+            ->addColumn('material', function ($manufacturing) {
+                return $manufacturing->material?->name ?? __('locale.None');
             })
-            ->addColumn('inventory',function($manufacturing){
-                return $manufacturing->inventory?->name ?? __('locale.None'); 
+            ->addColumn('inventory', function ($manufacturing) {
+                return $manufacturing->inventory?->name ?? __('locale.None');
             })
-            ->addColumn('bill',function($manufacturing){
-                return $manufacturing->bill?->serial ?? __('locale.None'); 
+            ->addColumn('bill', function ($manufacturing) {
+                return $manufacturing->bill?->serial ?? __('locale.None');
             })
             ->addColumn('created_at', function ($manufacturing) {
                 return $manufacturing->created_at->diffForHumans();
@@ -44,7 +42,6 @@ class ManufacturingDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Manufacturing $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Manufacturing $model)
@@ -72,6 +69,7 @@ class ManufacturingDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -111,6 +109,6 @@ class ManufacturingDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Manufacturing_' . date('YmdHis');
+        return 'Manufacturing_'.date('YmdHis');
     }
 }

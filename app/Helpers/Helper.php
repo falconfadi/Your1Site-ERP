@@ -2,19 +2,19 @@
 
 namespace App\Helpers;
 
-
 use App\Models\UserSetting;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 
 class Helper
 {
-
-    public static function settings($key =null , $default = null)
+    public static function settings($key = null, $default = null)
     {
         ['inventory_minimum_quantity'];
+
         return $default;
     }
+
     public static function applClasses()
     {
         // Demo
@@ -28,7 +28,7 @@ class Helper
         //     }
         // } else {
         //     $data = config('custom.main-dark');
-        // } 
+        // }
         // $data = config('custom.main-dark');
         $data = [];
         if (auth()->check()) {
@@ -55,7 +55,7 @@ class Helper
             'navbarColor' => '',
             'horizontalMenuType' => 'floating',
             'verticalMenuNavbarType' => 'floating',
-            'footerType' => 'static', //footer
+            'footerType' => 'static', // footer
             'layoutWidth' => 'boxed',
             'showMenu' => true,
             'bodyClass' => '',
@@ -92,7 +92,7 @@ class Helper
             'direction' => ['ltr', 'rtl'],
         ];
 
-        //if mainLayoutType value empty or not match with default options in custom.php config file then set a default value
+        // if mainLayoutType value empty or not match with default options in custom.php config file then set a default value
         foreach ($allOptions as $key => $value) {
             if (array_key_exists($key, $DefaultData)) {
                 if (gettype($DefaultData[$key]) === gettype($data[$key])) {
@@ -101,7 +101,7 @@ class Helper
                         // data key should not be empty
                         if (isset($data[$key]) && $data[$key] !== null) {
                             // data key should not be exist inside allOptions array's sub array
-                            if (!array_key_exists($data[$key], $value)) {
+                            if (! array_key_exists($data[$key], $value)) {
                                 // ensure that passed value should be match with any of allOptions array value
                                 $result = array_search($data[$key], $value, true);
                                 if (empty($result) && $result !== 0) {
@@ -119,7 +119,7 @@ class Helper
             }
         }
 
-        //layout classes
+        // layout classes
         $layoutClasses = [
             'theme' => $data['theme'],
             'layoutTheme' => $allOptions['theme'][$data['theme']],
@@ -146,18 +146,18 @@ class Helper
             'direction' => $data['direction'],
         ];
         // set default language if session hasn't locale value the set default language
-        if (!session()->has('locale')) {
+        if (! session()->has('locale')) {
             app()->setLocale($layoutClasses['defaultLanguage']);
         }
 
         // sidebar Collapsed
         if ($layoutClasses['sidebarCollapsed'] == 'true') {
-            $layoutClasses['sidebarClass'] = "menu-collapsed";
+            $layoutClasses['sidebarClass'] = 'menu-collapsed';
         }
 
         // blank page class
         if ($layoutClasses['blankPage'] == 'true') {
-            $layoutClasses['blankPageClass'] = "blank-page";
+            $layoutClasses['blankPageClass'] = 'blank-page';
         }
 
         return $layoutClasses;
@@ -169,16 +169,16 @@ class Helper
         $fullURL = request()->fullurl();
         if (App()->environment() === 'production') {
             for ($i = 1; $i < 7; $i++) {
-                $contains = Str::contains($fullURL, 'demo-' . $i);
+                $contains = Str::contains($fullURL, 'demo-'.$i);
                 if ($contains === true) {
-                    $demo = 'demo-' . $i;
+                    $demo = 'demo-'.$i;
                 }
             }
         }
         if (isset($pageConfigs)) {
             if (count($pageConfigs) > 0) {
                 foreach ($pageConfigs as $config => $val) {
-                    Config::set('custom.' . $demo . '.' . $config, $val);
+                    Config::set('custom.'.$demo.'.'.$config, $val);
                 }
             }
         }

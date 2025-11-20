@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ManufactureModel extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'inventory_id',
         'material_id',

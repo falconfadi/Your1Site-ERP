@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Currency extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'code', 'is_default', 'rate_to_default'];
-    protected $casts = ['is_default' => 'boolean'];
 
+    protected $fillable = ['name', 'code', 'is_default', 'rate_to_default'];
+
+    protected $casts = ['is_default' => 'boolean'];
 }

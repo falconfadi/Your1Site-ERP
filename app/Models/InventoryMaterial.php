@@ -4,19 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class InventoryMaterial extends Pivot
 {
     use HasFactory;
 
     public $incrementing = true;
+
     protected $casts = ['status' => 'integer'];
+
     protected $fillable = [
         'inventory_id',
         'material_id',
         'quantity',
-        'status'
+        'status',
     ];
 
     public function material()

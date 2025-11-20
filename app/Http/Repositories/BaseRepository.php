@@ -2,7 +2,6 @@
 
 namespace App\Http\Repositories;
 
-use Closure;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class BaseRepository implements Repository
 {
     private $model;
+
     public function __construct($model)
     {
         $this->model = $model;
@@ -69,7 +69,8 @@ class BaseRepository implements Repository
         array $where = [],
         array $columns = ['*']
     ): Collection {
-        $model = '\App\Models\\' . ucfirst(trim($model));
+        $model = '\App\Models\\'.ucfirst(trim($model));
+
         return $model::with($with)->where($where)->get($columns);
     }
 
@@ -83,12 +84,12 @@ class BaseRepository implements Repository
     }
 
     /**
-     *
-     * @param string $model Model to call
-     * @param array $callable array of methods to call on the model
-     * @param string $getter type of getter get(), first(), ...
-     * @param array $columns array of columns to get
+     * @param  string  $model  Model to call
+     * @param  array  $callable  array of methods to call on the model
+     * @param  string  $getter  type of getter get(), first(), ...
+     * @param  array  $columns  array of columns to get
      * @return Collection|Model the returned value deppend on the getter
+     *
      * @throws Exception if result not found
      **/
     public function getter(
@@ -98,28 +99,29 @@ class BaseRepository implements Repository
         array $columns = ['*'],
         bool $sql = false,
     ): Collection|Model|null {
-        $model = '\App\Models\\' . ucfirst(trim($model));
+        $model = '\App\Models\\'.ucfirst(trim($model));
         $class = class_basename($model);
-        if (!class_exists($model)) {
+        if (! class_exists($model)) {
             $this->throw("class $class not found");
         }
         $query = $model::query();
         if (! empty($callable)) {
             foreach ($callable as $key => $value) {
-                if (in_array($key, ['has', 'whereHas',])) {
+                if (in_array($key, ['has', 'whereHas'])) {
                     $query->$key(...$value);
                 } else {
                     $query->$key($value);
                 }
             }
         }
-        if($sql){
+        if ($sql) {
             $this->throw($query->toSql());
         }
         $result = $query->$getter($columns);
         if ($result == null) {
             $this->throw("No result found for: $class");
         }
+
         return $result;
     }
 

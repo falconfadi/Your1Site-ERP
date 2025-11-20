@@ -6,21 +6,20 @@ use App\Models\InventoryMaterial;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\SearchPane;
 
 class InventoryMaterialDataTable extends DataTable
 {
     private $inventory_id;
+
     public function __construct($id)
     {
         $this->inventory_id = $id;
     }
+
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -34,7 +33,7 @@ class InventoryMaterialDataTable extends DataTable
                         'route' => route('material.show', $material->material_id),
                         'options' => [
                             [
-                                'route' => route('inventory.material.delete',[
+                                'route' => route('inventory.material.delete', [
                                     'inventory_id' => $material->inventory_id,
                                     'material_id' => $material->material_id,
                                 ]),
@@ -42,7 +41,7 @@ class InventoryMaterialDataTable extends DataTable
                                 'class' => 'text-danger',
                                 'icon' => 'fa-trash',
                             ],
-                        ]
+                        ],
                     ]
                 );
             })
@@ -60,7 +59,6 @@ class InventoryMaterialDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\InventoryMaterial $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(InventoryMaterial $model)
@@ -87,6 +85,7 @@ class InventoryMaterialDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -123,6 +122,6 @@ class InventoryMaterialDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'InventoryMaterial_' . date('YmdHis');
+        return 'InventoryMaterial_'.date('YmdHis');
     }
 }

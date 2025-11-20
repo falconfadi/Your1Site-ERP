@@ -11,16 +11,18 @@ class LedgerRecord extends Model
 
     protected $guarded = [];
 
-    public function ledger(){
+    public function ledger()
+    {
         return $this->belongsTo(Ledger::class);
     }
 
     public function account()
     {
-        return $this->morphTo(__FUNCTION__,'account_type','account_id');
+        return $this->morphTo(__FUNCTION__, 'account_type', 'account_id');
     }
 
-    public function currency(){
+    public function currency()
+    {
         return $this->belongsTo(Currency::class);
     }
 }

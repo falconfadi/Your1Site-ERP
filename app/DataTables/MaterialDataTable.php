@@ -3,11 +3,8 @@
 namespace App\DataTables;
 
 use App\Models\Material;
-use Carbon\Carbon;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class MaterialDataTable extends DataTable
@@ -15,7 +12,7 @@ class MaterialDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -23,20 +20,20 @@ class MaterialDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function ($material) {
-                return view('utils.datatable_options',[
-                    'route'=>route('material.show',$material->id),
-                    'options'=>[]
+                return view('utils.datatable_options', [
+                    'route' => route('material.show', $material->id),
+                    'options' => [],
                 ]);
             })
             ->setRowAttr([
                 'id' => function ($material) {
-                    return 'row-' . $material->id;
+                    return 'row-'.$material->id;
                 },
                 'class' => function ($material) {
-                    if ($material->type == 2 && !$material->hasManufactureModel()) {
+                    if ($material->type == 2 && ! $material->hasManufactureModel()) {
                         return 'alert alert-danger';
                     }
-                }
+                },
             ])
             ->addColumn('quantity', function ($material) {
                 return $material->inventories()->sum('quantity');
@@ -58,7 +55,6 @@ class MaterialDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Material $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Material $model)
@@ -85,6 +81,7 @@ class MaterialDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -124,6 +121,6 @@ class MaterialDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Material_' . date('YmdHis');
+        return 'Material_'.date('YmdHis');
     }
 }

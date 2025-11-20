@@ -2,9 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Currency;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class CurrencyFactory extends Factory
 {
@@ -16,11 +14,12 @@ class CurrencyFactory extends Factory
     public function definition()
     {
         $currency = $this->faker->currencyCode();
+
         return [
             'code' => $currency,
             'name' => $currency,
             'is_default' => false,
-            'rate_to_default' => rand(100,1000),
+            'rate_to_default' => rand(100, 1000),
         ];
     }
 
@@ -50,7 +49,7 @@ class CurrencyFactory extends Factory
             'name' => 'syp',
             'code' => 'syp',
             'is_default' => true,
-            'rate_to_default' => 1,            
+            'rate_to_default' => 1,
         ]);
     }
 }

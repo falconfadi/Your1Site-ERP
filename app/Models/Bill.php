@@ -16,20 +16,20 @@ class Bill extends Model
     {
         return $this->serial;
     }
-    
+
     public function item()
     {
-        return $this->belongsTo($this->billable_type,'billable_id');
+        return $this->belongsTo($this->billable_type, 'billable_id');
     }
 
     public function getGetTypeAttribute()
     {
-        return __('locale.'.explode('\\',$this->billable_type)[2]) ?? __('locale.None');
+        return __('locale.'.explode('\\', $this->billable_type)[2]) ?? __('locale.None');
     }
 
     public function getBaseTypeAttribute()
     {
-        return explode('\\',$this->billable_type)[2];
+        return explode('\\', $this->billable_type)[2];
     }
 
     public function getGetStatusAttribute()
@@ -43,8 +43,9 @@ class Bill extends Model
         };
     }
 
-    public function transaction(){
-        return $this->hasOne(Transaction::class,'belongTo_id')
-        ->where(['belongTo_type'=>$this::class]);
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class, 'belongTo_id')
+            ->where(['belongTo_type' => $this::class]);
     }
 }

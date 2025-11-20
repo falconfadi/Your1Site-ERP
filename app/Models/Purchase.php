@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Purchase extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'inventory_id',
         'currency_id',
@@ -36,11 +37,13 @@ class Purchase extends Model
             ->withPivot(['quantity', 'unit_id',  'cost']);
     }
 
-    public function total(){
+    public function total()
+    {
         $total = 0;
-        foreach($this->materials as $material){
+        foreach ($this->materials as $material) {
             $total += $material->pivot->quantity * $material->pivot->cost;
         }
+
         return $total;
     }
 
@@ -64,9 +67,9 @@ class Purchase extends Model
     {
         return $this->belongsTo(Currency::class);
     }
-    
+
     public function rateTo()
     {
-        return $this->belongsTo(Currency::class,'rate_to');
+        return $this->belongsTo(Currency::class, 'rate_to');
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
+use App\Models\Material;
+use App\Models\Purchase;
+use App\Models\Unit;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Currency;
-use App\Models\Purchase;
-use App\Models\Material;
-use App\Models\Unit;
 
 class CreateMaterialPurchaseTable extends Migration
 {
@@ -18,7 +17,7 @@ class CreateMaterialPurchaseTable extends Migration
     public function up()
     {
         Schema::create('material_purchase', function (Blueprint $table) {
-            $table->id();            
+            $table->id();
             $table->foreignIdFor(Purchase::class)->nullable();
             $table->foreignIdFor(Material::class)->nullable();
             $table->integer('quantity')->default(1);

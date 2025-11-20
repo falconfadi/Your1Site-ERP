@@ -14,9 +14,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        if( is_null( \App\Models\User::first() ) )
-        {
-            \App\Models\User::firstOrCreate(['email' => 'admin@admin.com',],
+        if (is_null(\App\Models\User::first())) {
+            \App\Models\User::firstOrCreate(['email' => 'admin@admin.com'],
                 [
                     'username' => 'Admin',
                     'full_name' => 'Ms Admin',
@@ -25,14 +24,12 @@ class UserSeeder extends Seeder
             );
             \App\Models\User::factory(5)->create();
         }
-        
-        if( is_null( \App\Models\Client::first() ) )
-        {
+
+        if (is_null(\App\Models\Client::first())) {
             \App\Models\Client::factory(5)->create();
         }
-        
-        if( is_null( \App\Models\Vendor::first() ) )
-        {
+
+        if (is_null(\App\Models\Vendor::first())) {
             \App\Models\Vendor::factory(5)->create();
         }
     }

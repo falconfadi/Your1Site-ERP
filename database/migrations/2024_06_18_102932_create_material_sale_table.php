@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Currency;
 use App\Models\Material;
 use App\Models\Sale;
 use App\Models\Unit;

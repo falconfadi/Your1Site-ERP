@@ -18,7 +18,7 @@ class Transaction extends Model
         'amount',
         'remaining',
         'created_by',
-        'is_payed'
+        'is_payed',
     ];
 
     protected $transaction_type = [1 => 'Deposit', 2 => 'Withdraw'];
@@ -40,6 +40,6 @@ class Transaction extends Model
 
     public function belongTo()
     {
-        return $this->morphTo(__FUNCTION__,'belongTo_type','belongTo_id');
+        return $this->morphTo(__FUNCTION__, 'belongTo_type', 'belongTo_id');
     }
 }

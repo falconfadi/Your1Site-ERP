@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Http\Repositories;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class UserRepository extends BaseRepository
+{
+    public function __construct()
+    {
+        parent::__construct(User::class);
+    }
+
+    public function addUserExtraInfo(Request $request, $user)
+    {
+        return $user->settings()->create([
+            'key' => 'phone_number',
+            'value' => $request->phone_number,
+        ]);
+    }
+
+    public function updateUserExtraInfo(Request $request, $user)
+    {
+        $array = ['phone_number', 'phone_number_n2', 'address'];
+        foreach ($array as $setting) {
+            if ($request->filled($setting)) {
+                if ($user->settings()->where('key', $setting)->exists()) {
+                    $user->settings()->where('key', $setting)->update(['value' => $request->$setting]);
+                } else {
+                    $user->settings()->create(['key' => $setting, 'value' => $request->$setting]);
+                }
+            }
+        }
+
+        return $user->settings();
+    }
+}

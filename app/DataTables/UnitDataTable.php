@@ -6,15 +6,13 @@ use App\Models\Unit;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Html\Editor\Editor;
 
 class UnitDataTable extends DataTable
 {
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
+     * @param  mixed  $query  Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -22,9 +20,9 @@ class UnitDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function ($unit) {
-                return view('utils.datatable_options',[
-                    'route'=>route('unit.show',$unit->id),
-                    'options'=>[]
+                return view('utils.datatable_options', [
+                    'route' => route('unit.show', $unit->id),
+                    'options' => [],
                 ]);
             })
             ->addColumn('materials', function ($unit) {
@@ -38,7 +36,6 @@ class UnitDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Unit $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Unit $model)
@@ -66,6 +63,7 @@ class UnitDataTable extends DataTable
     public function getBtns()
     {
         $btn_class = 'btn btn-outline-primary btn-sm';
+
         return [
             Button::make('pdf')->addClass($btn_class),
             Button::make('print')->addClass($btn_class),
@@ -103,6 +101,6 @@ class UnitDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Unit_' . date('YmdHis');
+        return 'Unit_'.date('YmdHis');
     }
 }

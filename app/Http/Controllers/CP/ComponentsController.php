@@ -4,18 +4,17 @@ namespace App\Http\Controllers\CP;
 
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
-
 class ComponentsController extends Controller
 {
     // Component accordion
     public function accordion()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Accordion"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Accordion'],
         ];
+
         return view('/content/components/component-accordion', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -23,10 +22,11 @@ class ComponentsController extends Controller
     public function alert()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Alerts"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Alerts'],
         ];
+
         return view('/content/components/component-alerts', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -34,10 +34,11 @@ class ComponentsController extends Controller
     public function avatar()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Avatar"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Avatar'],
         ];
+
         return view('/content/components/component-avatar', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -45,10 +46,11 @@ class ComponentsController extends Controller
     public function badges()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Badges"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Badges'],
         ];
+
         return view('/content/components/component-badges', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -56,10 +58,11 @@ class ComponentsController extends Controller
     public function breadcrumbs()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Breadcrumbs"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Breadcrumbs'],
         ];
+
         return view('/content/components/component-breadcrumbs', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -67,10 +70,11 @@ class ComponentsController extends Controller
     public function buttons()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Buttons"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Buttons'],
         ];
+
         return view('/content/components/component-buttons', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -78,10 +82,11 @@ class ComponentsController extends Controller
     public function carousel()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Carousel"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Carousel'],
         ];
+
         return view('/content/components/component-carousel', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -89,10 +94,11 @@ class ComponentsController extends Controller
     public function collapse()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Collapse"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Collapse'],
         ];
+
         return view('/content/components/component-collapse', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -100,10 +106,11 @@ class ComponentsController extends Controller
     public function divider()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Divider"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Divider'],
         ];
+
         return view('/content/components/component-divider', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -111,10 +118,11 @@ class ComponentsController extends Controller
     public function dropdowns()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Dropdowns"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Dropdowns'],
         ];
+
         return view('/content/components/component-dropdowns', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -122,10 +130,11 @@ class ComponentsController extends Controller
     public function list_group()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "List Group"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'List Group'],
         ];
+
         return view('/content/components/component-list-group', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -133,10 +142,11 @@ class ComponentsController extends Controller
     public function modals()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Modals"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Modals'],
         ];
+
         return view('/content/components/component-modals', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -144,10 +154,11 @@ class ComponentsController extends Controller
     public function navs()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Navs"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Navs'],
         ];
+
         return view('/content/components/component-navs', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -155,10 +166,11 @@ class ComponentsController extends Controller
     public function offcanvas()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "OffCanvas"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'OffCanvas'],
         ];
+
         return view('/content/components/component-offcanvas', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -166,10 +178,11 @@ class ComponentsController extends Controller
     public function pagination()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Pagination"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Pagination'],
         ];
+
         return view('/content/components/component-pagination', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -177,10 +190,11 @@ class ComponentsController extends Controller
     public function pill_badges()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Pill Badges"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Pill Badges'],
         ];
+
         return view('/content/components/component-pill-badges', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -188,10 +202,11 @@ class ComponentsController extends Controller
     public function pills()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Pills"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Pills'],
         ];
+
         return view('/content/components/component-pills', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -199,22 +214,23 @@ class ComponentsController extends Controller
     public function tabs()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Tabs"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Tabs'],
         ];
+
         return view('/content/components/component-tabs', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
-
 
     // Component Tooltips
     public function tooltips()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Tooltips"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Tooltips'],
         ];
+
         return view('/content/components/component-tooltips', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -222,10 +238,11 @@ class ComponentsController extends Controller
     public function popovers()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Popovers"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Popovers'],
         ];
+
         return view('/content/components/component-popovers', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -233,10 +250,11 @@ class ComponentsController extends Controller
     public function progress()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Progress"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Progress'],
         ];
+
         return view('/content/components/component-progress', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -244,10 +262,11 @@ class ComponentsController extends Controller
     public function spinner()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Spinner"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Spinner'],
         ];
+
         return view('/content/components/component-spinner', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -255,10 +274,11 @@ class ComponentsController extends Controller
     public function timeline()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Timeline"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Timeline'],
         ];
+
         return view('/content/components/component-timeline', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -266,10 +286,11 @@ class ComponentsController extends Controller
     public function toast()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Components"], ['name' => "Toasts"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Components'], ['name' => 'Toasts'],
         ];
+
         return view('/content/components/component-bs-toast', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 }

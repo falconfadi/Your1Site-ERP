@@ -16,17 +16,16 @@ class InventoryFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->firstNameFemale(),
+            'name' => $this->faker->firstNameFemale(),
         ];
     }
 
     public function configure()
     {
-        return $this->afterCreating(function(Inventory $inventory){
-            foreach(Material::where('type',1)->pluck('id')->random(4) as $id)
-            {
-                $inventory->materials()->attach($id,[
-                    'quantity'=>2000,
+        return $this->afterCreating(function (Inventory $inventory) {
+            foreach (Material::where('type', 1)->pluck('id')->random(4) as $id) {
+                $inventory->materials()->attach($id, [
+                    'quantity' => 2000,
                 ]);
             }
         });
@@ -35,8 +34,8 @@ class InventoryFactory extends Factory
     public function isDefault()
     {
         return $this->state([
-            'name'=>$this->faker->firstNameFemale(),
-            'is_default'=>1,
+            'name' => $this->faker->firstNameFemale(),
+            'is_default' => 1,
         ]);
     }
 }

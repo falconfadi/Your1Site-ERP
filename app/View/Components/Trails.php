@@ -2,13 +2,15 @@
 
 namespace App\View\Components;
 
-use Illuminate\View\Component;
 use Illuminate\Support\Str;
+use Illuminate\View\Component;
 
 class Trails extends Component
 {
     public $breadcrumbs;
+
     public $titles;
+
     /**
      * Create a new component instance.
      *
@@ -16,21 +18,20 @@ class Trails extends Component
      */
     public function __construct($titles = [])
     {
-        if(request()->is('/'))
-        {
-            return $this->breadcrumbs = [['link' => "/", 'name' => __('locale.Home')]];
+        if (request()->is('/')) {
+            return $this->breadcrumbs = [['link' => '/', 'name' => __('locale.Home')]];
         }
-        $path_arr = explode('/',request()->path());
+        $path_arr = explode('/', request()->path());
         $name = __('locale.'.Str::ucfirst(Str::plural($path_arr[0])));
-        $tail = __('locale.'.Str::ucfirst($path_arr[1]?? ''));
-        $link = str_contains(request()->path(),'all') ?
-            "javascript:void(0)" :
+        $tail = __('locale.'.Str::ucfirst($path_arr[1] ?? ''));
+        $link = str_contains(request()->path(), 'all') ?
+            'javascript:void(0)' :
              $path_arr[0].'/all';
 
         $this->breadcrumbs = [
-            ['link' => "/", 'name' => __('locale.Home')],
+            ['link' => '/', 'name' => __('locale.Home')],
             ['link' => $link, 'name' => $name],
-            ['name' => count($titles)>0?implode('-',$titles):$tail]
+            ['name' => count($titles) > 0 ? implode('-', $titles) : $tail],
         ];
     }
 

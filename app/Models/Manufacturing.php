@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Manufacturing extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'inventory_id',
         'material_id',
@@ -26,13 +27,14 @@ class Manufacturing extends Model
     {
         return $this->belongsTo(Material::class);
     }
-    
+
     public function materials()
     {
         return $this->hasMany(ManufactureModel::class, 'manufactured_id', 'material_id');
     }
 
-    public function total(){
+    public function total()
+    {
         return $this->cost;
     }
 

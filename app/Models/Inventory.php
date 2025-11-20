@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Inventory extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable = ['name', 'is_default', 'status'];
 
     protected $casts = ['status' => 'integer'];

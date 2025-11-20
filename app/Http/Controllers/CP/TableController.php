@@ -4,23 +4,23 @@ namespace App\Http\Controllers\CP;
 
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
-
 class TableController extends Controller
 {
     // Bootstrap Table
     public function table()
     {
-        $breadcrumbs = [['link' => "/", 'name' => "Home"], ['name' => "Table Bootstrap"]];
+        $breadcrumbs = [['link' => '/', 'name' => 'Home'], ['name' => 'Table Bootstrap']];
+
         return view('/content/table/table-bootstrap/table-bootstrap', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
     // Datatable Basic
     public function datatable_basic()
     {
-        $breadcrumbs = [['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Datatable"], ['name' => "Basic"]];
+        $breadcrumbs = [['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Datatable'], ['name' => 'Basic']];
+
         return view('/content/table/table-datatable/table-datatable-basic', ['breadcrumbs' => $breadcrumbs]);
     }
 
@@ -28,10 +28,11 @@ class TableController extends Controller
     public function datatable_advance()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Datatable"], ['name' => "Advanced"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Datatable'], ['name' => 'Advanced'],
         ];
+
         return view('/content/table/table-datatable/table-datatable-advance', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 }

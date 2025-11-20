@@ -13,11 +13,11 @@ class ClientFactory extends Factory
      */
     public function definition()
     {
-        return [ 
-            'first_name'=>$this->faker->firstName(),
-            'last_name'=>$this->faker->firstName(),
-            'email'=>$this->faker->email(),
-            'phone'=>$this->faker->phoneNumber(),
+        return [
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->firstName(),
+            'email' => $this->faker->email(),
+            'phone' => $this->faker->phoneNumber(),
         ];
     }
 }

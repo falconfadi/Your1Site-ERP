@@ -13,11 +13,11 @@ class CurrencySeeder extends Seeder
      */
     public function run()
     {
-        if( is_null( \App\Models\Currency::first() ) ){
+        if (is_null(\App\Models\Currency::first())) {
             \App\Models\Currency::factory()->dollar()->create();
             \App\Models\Currency::factory()->pound()->create();
             \App\Models\Currency::factory()->syp()->create();
             \App\Models\Currency::factory(2)->create();
-        }        
+        }
     }
 }

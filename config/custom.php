@@ -1,38 +1,39 @@
 <?php
+
 return [
-    
+
     'main-light' => [
-        'mainLayoutType' => 'vertical', 
+        'mainLayoutType' => 'vertical',
         'theme' => 'light',
-        'sidebarCollapsed' => true, 
+        'sidebarCollapsed' => true,
         'navbarColor' => '',
-        'verticalMenuNavbarType' => 'floating', 
-        'footerType' => 'static', 
+        'verticalMenuNavbarType' => 'floating',
+        'footerType' => 'static',
         'layoutWidth' => 'full',
         'showMenu' => true,
-        'bodyClass' => '', 
-        'pageHeader' => true, 
+        'bodyClass' => '',
+        'pageHeader' => true,
         'contentLayout' => 'default',
         'defaultLanguage' => 'en',
-        'blankPage' => false, 
-        'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), 
+        'blankPage' => false,
+        'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'),
     ],
 
     'main-dark' => [
-        'mainLayoutType' => 'vertical', 
+        'mainLayoutType' => 'vertical',
         'theme' => 'dark',
-        'sidebarCollapsed' => false, 
+        'sidebarCollapsed' => false,
         'navbarColor' => '',
-        'verticalMenuNavbarType' => 'floating', 
-        'footerType' => 'static', 
+        'verticalMenuNavbarType' => 'floating',
+        'footerType' => 'static',
         'layoutWidth' => 'full',
         'showMenu' => true,
-        'bodyClass' => '', 
-        'pageHeader' => true, 
+        'bodyClass' => '',
+        'pageHeader' => true,
         'contentLayout' => 'default',
         'defaultLanguage' => 'en',
-        'blankPage' => false, 
-        'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), 
+        'blankPage' => false,
+        'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'),
     ],
 
     'custom' => [
@@ -48,7 +49,7 @@ return [
         'bodyClass' => '', // add custom class
         'pageHeader' => true, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
         'contentLayout' => 'default', // options[String]: default, content-left-sidebar, content-right-sidebar, content-detached-left-sidebar, content-detached-right-sidebar (warning:use this option if your whole project with sidenav Otherwise override this option as page level )
-        'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
+        'defaultLanguage' => 'en',    // en(default)/de/pt/fr here are four optional language provided in theme
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
     ],
@@ -65,7 +66,7 @@ return [
         'bodyClass' => '', // add custom class
         'pageHeader' => true, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
         'contentLayout' => 'default', // options[String]: default, content-left-sidebar, content-right-sidebar, content-detached-left-sidebar, content-detached-right-sidebar (warning:use this option if your whole project with sidenav Otherwise override this option as page level )
-        'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
+        'defaultLanguage' => 'en',    // en(default)/de/pt/fr here are four optional language provided in theme
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
     ],
@@ -82,7 +83,7 @@ return [
         'bodyClass' => '', // add custom class
         'pageHeader' => true, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
         'contentLayout' => 'default', // options[String]: default, content-left-sidebar, content-right-sidebar, content-detached-left-sidebar, content-detached-right-sidebar (warning:use this option if your whole project with sidenav Otherwise override this option as page level )
-        'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
+        'defaultLanguage' => 'en',    // en(default)/de/pt/fr here are four optional language provided in theme
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
     ],
@@ -99,7 +100,7 @@ return [
         'bodyClass' => '', // add custom class
         'pageHeader' => true, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
         'contentLayout' => 'default', // options[String]: default, content-left-sidebar, content-right-sidebar, content-detached-left-sidebar, content-detached-right-sidebar (warning:use this option if your whole project with sidenav Otherwise override this option as page level )
-        'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
+        'defaultLanguage' => 'en',    // en(default)/de/pt/fr here are four optional language provided in theme
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
     ],
@@ -116,7 +117,7 @@ return [
         'bodyClass' => '', // add custom class
         'pageHeader' => true, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
         'contentLayout' => 'default', // options[String]: default, content-left-sidebar, content-right-sidebar, content-detached-left-sidebar, content-detached-right-sidebar (warning:use this option if your whole project with sidenav Otherwise override this option as page level )
-        'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
+        'defaultLanguage' => 'en',    // en(default)/de/pt/fr here are four optional language provided in theme
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
     ],
@@ -133,7 +134,7 @@ return [
         'bodyClass' => '', // add custom class
         'pageHeader' => true, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
         'contentLayout' => 'default', // options[String]: default, content-left-sidebar, content-right-sidebar, content-detached-left-sidebar, content-detached-right-sidebar (warning:use this option if your whole project with sidenav Otherwise override this option as page level )
-        'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
+        'defaultLanguage' => 'en',    // en(default)/de/pt/fr here are four optional language provided in theme
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
     ],
@@ -150,10 +151,10 @@ return [
         'bodyClass' => '', // add custom class
         'pageHeader' => true, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
         'contentLayout' => 'default', // options[String]: default, content-left-sidebar, content-right-sidebar, content-detached-left-sidebar, content-detached-right-sidebar (warning:use this option if your whole project with sidenav Otherwise override this option as page level )
-        'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
+        'defaultLanguage' => 'en',    // en(default)/de/pt/fr here are four optional language provided in theme
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
-    ]
+    ],
 ];
 
 /* Do changes in this file if you know what it effects to your template. For more infomation refer the <a href="https://pixinvent.com/demo/vuexy-bootstrap-laravel-admin-template//documentation/documentation-laravel.html"> documentation </a> */

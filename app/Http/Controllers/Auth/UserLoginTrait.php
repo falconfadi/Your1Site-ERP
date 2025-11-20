@@ -15,20 +15,17 @@ trait UserLoginTrait
 {
     use RedirectsUsers, ThrottlesLogins;
 
-
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
-    
     public function login(Request $request)
     {
         $this->validateLogin($request);
 
-        if(!$this->isDeviceTokenMatch($request))
-        {
-            return redirect()->back()->with('error','Attemps to login on foreign device');
+        if (! $this->isDeviceTokenMatch($request)) {
+            return redirect()->back()->with('error', 'Attemps to login on foreign device');
         }
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -45,6 +42,7 @@ trait UserLoginTrait
             if ($request->hasSession()) {
                 $request->session()->put('auth.password_confirmed_at', time());
             }
+
             return $this->sendLoginResponse($request);
         }
 
@@ -57,35 +55,37 @@ trait UserLoginTrait
     }
 
     public function isDeviceTokenMatch(Request $request)
-    {   
-        $user = User::where('email',$request->email)->first();
-        if(!$user || is_null($user)){
-            return back()->with('error','User not found');
+    {
+        $user = User::where('email', $request->email)->first();
+        if (! $user || is_null($user)) {
+            return back()->with('error', 'User not found');
         }
         $token = $this->GenerateDeviceToken($request);
-        if($user->device_token == 'pindding'){
+        if ($user->device_token == 'pindding') {
             $user->device_token = Hash::make($token);
+
             return $user->save();
-        } 
-        return Hash::check($token,$user->device_token);
+        }
+
+        return Hash::check($token, $user->device_token);
     }
 
     public function GenerateDeviceToken(Request $request)
     {
-        // generate a semi unique device token 
+        // generate a semi unique device token
         // based on user email ,user agent and user os
         return base64_encode(
             $request->email.
             $request->header('user-agent').
             $request->header('sec-ch-ua-platform')
-        );        
+        );
     }
 
     protected function validateLogin(Request $request)
     {
         $request->validate([
-            'email' => ['required','email','exists:users,email',],
-            'password' => ['required','string','min:8',],
+            'email' => ['required', 'email', 'exists:users,email'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 

@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Models\Currency;
 use App\Models\Inventory;
 use App\Models\User;
@@ -21,10 +20,10 @@ class CreatePurchasesTable extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Inventory::class)->nullable();
-            $table->foreignIdFor(User::class,'created_by');
+            $table->foreignIdFor(User::class, 'created_by');
             $table->foreignIdFor(Vendor::class);
             $table->foreignIdFor(Currency::class);
-            $table->foreignIdFor(Currency::class,'rate_to');
+            $table->foreignIdFor(Currency::class, 'rate_to');
             $table->integer('rate');
             $table->smallInteger('mark')->default(0);
             $table->smallInteger('level')->default(0);

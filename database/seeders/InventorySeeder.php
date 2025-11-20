@@ -13,8 +13,7 @@ class InventorySeeder extends Seeder
      */
     public function run()
     {
-        if(is_null(\App\Models\Inventory::first()))
-        {
+        if (is_null(\App\Models\Inventory::first())) {
             \App\Models\Inventory::factory()->isDefault()->create();
             \App\Models\Inventory::factory(2)->create();
         }

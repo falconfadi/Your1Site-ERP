@@ -9,9 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Transfer extends Model
 {
     use HasFactory , SoftDeletes;
+
     protected $fillable = ['transaction_id', 'amount', 'created_by'];
 
-    public function transaction(){
+    public function transaction()
+    {
         return $this->belongsTo(Transaction::class);
     }
 }

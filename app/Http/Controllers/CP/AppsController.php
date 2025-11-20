@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\CP;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class AppsController extends Controller
 {
@@ -51,6 +50,7 @@ class AppsController extends Controller
     public function user_list()
     {
         $pageConfigs = ['pageHeader' => false];
+
         return view('/content/apps/user/app-user-list', ['pageConfigs' => $pageConfigs]);
     }
 
@@ -58,6 +58,7 @@ class AppsController extends Controller
     public function user_view_account()
     {
         $pageConfigs = ['pageHeader' => false];
+
         return view('/content/apps/user/app-user-view-account', ['pageConfigs' => $pageConfigs]);
     }
 
@@ -65,6 +66,7 @@ class AppsController extends Controller
     public function user_view_security()
     {
         $pageConfigs = ['pageHeader' => false];
+
         return view('/content/apps/user/app-user-view-security', ['pageConfigs' => $pageConfigs]);
     }
 
@@ -72,6 +74,7 @@ class AppsController extends Controller
     public function user_view_billing()
     {
         $pageConfigs = ['pageHeader' => false];
+
         return view('/content/apps/user/app-user-view-billing', ['pageConfigs' => $pageConfigs]);
     }
 
@@ -79,6 +82,7 @@ class AppsController extends Controller
     public function user_view_notifications()
     {
         $pageConfigs = ['pageHeader' => false];
+
         return view('/content/apps/user/app-user-view-notifications', ['pageConfigs' => $pageConfigs]);
     }
 
@@ -86,21 +90,21 @@ class AppsController extends Controller
     public function user_view_connections()
     {
         $pageConfigs = ['pageHeader' => false];
+
         return view('/content/apps/user/app-user-view-connections', ['pageConfigs' => $pageConfigs]);
     }
-
 
     // Chat App
     public function chatApp()
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'contentLayout' => "content-left-sidebar",
+            'contentLayout' => 'content-left-sidebar',
             'pageClass' => 'chat-application',
         ];
 
         return view('/content/apps/chat/app-chat', [
-            'pageConfigs' => $pageConfigs
+            'pageConfigs' => $pageConfigs,
         ]);
     }
 
@@ -108,11 +112,11 @@ class AppsController extends Controller
     public function calendarApp()
     {
         $pageConfigs = [
-            'pageHeader' => false
+            'pageHeader' => false,
         ];
 
         return view('/content/apps/calendar/app-calendar', [
-            'pageConfigs' => $pageConfigs
+            'pageConfigs' => $pageConfigs,
         ]);
     }
 
@@ -121,31 +125,33 @@ class AppsController extends Controller
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'contentLayout' => "content-left-sidebar",
+            'contentLayout' => 'content-left-sidebar',
             'pageClass' => 'email-application',
         ];
 
         return view('/content/apps/email/app-email', ['pageConfigs' => $pageConfigs]);
     }
+
     // ToDo App
     public function todoApp()
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'contentLayout' => "content-left-sidebar",
+            'contentLayout' => 'content-left-sidebar',
             'pageClass' => 'todo-application',
         ];
 
         return view('/content/apps/todo/app-todo', [
-            'pageConfigs' => $pageConfigs
+            'pageConfigs' => $pageConfigs,
         ]);
     }
+
     // File manager App
     public function file_manager()
     {
         $pageConfigs = [
             'pageHeader' => false,
-            'contentLayout' => "content-left-sidebar",
+            'contentLayout' => 'content-left-sidebar',
             'pageClass' => 'file-manager-application',
         ];
 
@@ -155,7 +161,7 @@ class AppsController extends Controller
     // Access Roles App
     public function access_roles()
     {
-        $pageConfigs = ['pageHeader' => false,];
+        $pageConfigs = ['pageHeader' => false];
 
         return view('/content/apps/rolesPermission/app-access-roles', ['pageConfigs' => $pageConfigs]);
     }
@@ -163,7 +169,7 @@ class AppsController extends Controller
     // Access permission App
     public function access_permission()
     {
-        $pageConfigs = ['pageHeader' => false,];
+        $pageConfigs = ['pageHeader' => false];
 
         return view('/content/apps/rolesPermission/app-access-permission', ['pageConfigs' => $pageConfigs]);
     }
@@ -183,17 +189,17 @@ class AppsController extends Controller
     public function ecommerce_shop()
     {
         $pageConfigs = [
-            'contentLayout' => "content-detached-left-sidebar",
+            'contentLayout' => 'content-detached-left-sidebar',
             'pageClass' => 'ecommerce-application',
         ];
 
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "eCommerce"], ['name' => "Shop"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'eCommerce'], ['name' => 'Shop'],
         ];
 
         return view('/content/apps/ecommerce/app-ecommerce-shop', [
             'pageConfigs' => $pageConfigs,
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -205,12 +211,12 @@ class AppsController extends Controller
         ];
 
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "eCommerce"], ['link' => "/app/ecommerce/shop", 'name' => "Shop"], ['name' => "Details"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'eCommerce'], ['link' => '/app/ecommerce/shop', 'name' => 'Shop'], ['name' => 'Details'],
         ];
 
         return view('/content/apps/ecommerce/app-ecommerce-details', [
             'pageConfigs' => $pageConfigs,
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -222,12 +228,12 @@ class AppsController extends Controller
         ];
 
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "eCommerce"], ['name' => "Wish List"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'eCommerce'], ['name' => 'Wish List'],
         ];
 
         return view('/content/apps/ecommerce/app-ecommerce-wishlist', [
             'pageConfigs' => $pageConfigs,
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -239,12 +245,12 @@ class AppsController extends Controller
         ];
 
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "eCommerce"], ['name' => "Checkout"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'eCommerce'], ['name' => 'Checkout'],
         ];
 
         return view('/content/apps/ecommerce/app-ecommerce-checkout', [
             'pageConfigs' => $pageConfigs,
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 }

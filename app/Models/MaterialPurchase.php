@@ -24,5 +24,4 @@ class MaterialPurchase extends Pivot
     {
         return $this->belongsTo(Unit::class);
     }
-    
 }

@@ -4,18 +4,17 @@ namespace App\Http\Controllers\CP;
 
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
-
 class ExtensionController extends Controller
 {
     // Sweet Alert
     public function sweet_alert()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Sweet Alerts"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Sweet Alerts'],
         ];
+
         return view('/content/extensions/ext-component-sweet-alerts', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -23,10 +22,11 @@ class ExtensionController extends Controller
     public function block_ui()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "BlockUI"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'BlockUI'],
         ];
+
         return view('/content/extensions/ext-component-block-ui', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -34,10 +34,11 @@ class ExtensionController extends Controller
     public function toastr()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Toastr"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Toastr'],
         ];
+
         return view('/content/extensions/ext-component-toastr', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -45,10 +46,11 @@ class ExtensionController extends Controller
     public function sliders()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Sliders"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Sliders'],
         ];
+
         return view('/content/extensions/ext-component-sliders', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -56,10 +58,11 @@ class ExtensionController extends Controller
     public function drag_drop()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Drag & Drop"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Drag & Drop'],
         ];
+
         return view('/content/extensions/ext-component-drag-drop', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -67,10 +70,11 @@ class ExtensionController extends Controller
     public function tour()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Tour"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Tour'],
         ];
+
         return view('/content/extensions/ext-component-tour', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -78,10 +82,11 @@ class ExtensionController extends Controller
     public function clipboard()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Clipboard"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Clipboard'],
         ];
+
         return view('/content/extensions/ext-component-clipboard', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -89,10 +94,11 @@ class ExtensionController extends Controller
     public function plyr()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Media Player"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Media Player'],
         ];
+
         return view('/content/extensions/ext-component-media-player', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -100,10 +106,11 @@ class ExtensionController extends Controller
     public function context_menu()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Context Menu"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Context Menu'],
         ];
+
         return view('/content/extensions/ext-component-context-menu', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -111,10 +118,11 @@ class ExtensionController extends Controller
     public function swiper()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Swiper"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Swiper'],
         ];
+
         return view('/content/extensions/ext-component-swiper', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -122,10 +130,11 @@ class ExtensionController extends Controller
     public function tree()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Tree"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Tree'],
         ];
+
         return view('/content/extensions/ext-component-tree', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -133,10 +142,11 @@ class ExtensionController extends Controller
     public function ratings()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Ratings"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Ratings'],
         ];
+
         return view('/content/extensions/ext-component-ratings', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 
@@ -144,10 +154,11 @@ class ExtensionController extends Controller
     public function locale()
     {
         $breadcrumbs = [
-            ['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Extensions"], ['name' => "Locale"]
+            ['link' => '/', 'name' => 'Home'], ['link' => 'javascript:void(0)', 'name' => 'Extensions'], ['name' => 'Locale'],
         ];
+
         return view('/content/locale/locale', [
-            'breadcrumbs' => $breadcrumbs
+            'breadcrumbs' => $breadcrumbs,
         ]);
     }
 }

@@ -10,20 +10,22 @@ class Cashier extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'total', 'is_default', ];
+    protected $fillable = ['name', 'total', 'is_default'];
 
-    public function transactions(){
-        return $this->hasMany(Transaction::class)->orderBy('created_at','desc');
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class)->orderBy('created_at', 'desc');
     }
 
-    public function ledgers(){
+    public function ledgers()
+    {
         return $this->hasMany(Ledger::class);
     }
 
-    public function transfers(){
-        return $this->hasMany(Transaction::class,'belongTo_id')
-        ->where(['belongTo_type'=>$this::class])
-        ->orderBy('created_at','desc');
+    public function transfers()
+    {
+        return $this->hasMany(Transaction::class, 'belongTo_id')
+            ->where(['belongTo_type' => $this::class])
+            ->orderBy('created_at', 'desc');
     }
-
 }

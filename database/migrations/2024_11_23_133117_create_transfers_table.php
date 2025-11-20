@@ -18,7 +18,7 @@ class CreateTransfersTable extends Migration
         Schema::create('transfers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Transaction::class);
-            $table->foreignIdFor(User::class,'created_by');
+            $table->foreignIdFor(User::class, 'created_by');
             $table->integer('amount')->default(0);
             $table->timestamps();
             $table->softDeletes();

@@ -1,20 +1,20 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CP\LanguageController;
-use App\Http\Controllers\CP\DashboardController;
 use App\Http\Controllers\CP\AppsController;
-use App\Http\Controllers\CP\UserInterfaceController;
-use App\Http\Controllers\CP\CardsController;
-use App\Http\Controllers\CP\ComponentsController;
-use App\Http\Controllers\CP\ExtensionController;
-use App\Http\Controllers\CP\PageLayoutController;
-use App\Http\Controllers\CP\FormsController;
-use App\Http\Controllers\CP\TableController;
-use App\Http\Controllers\CP\PagesController;
-use App\Http\Controllers\CP\MiscellaneousController;
 use App\Http\Controllers\CP\AuthenticationController;
+use App\Http\Controllers\CP\CardsController;
 use App\Http\Controllers\CP\ChartsController;
+use App\Http\Controllers\CP\ComponentsController;
+use App\Http\Controllers\CP\DashboardController;
+use App\Http\Controllers\CP\ExtensionController;
+use App\Http\Controllers\CP\FormsController;
+use App\Http\Controllers\CP\LanguageController;
+use App\Http\Controllers\CP\MiscellaneousController;
+use App\Http\Controllers\CP\PageLayoutController;
+use App\Http\Controllers\CP\PagesController;
+use App\Http\Controllers\CP\TableController;
+use App\Http\Controllers\CP\UserInterfaceController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +29,6 @@ use App\Http\Controllers\CP\ChartsController;
 
 // Main Page Route
 // Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
-
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {

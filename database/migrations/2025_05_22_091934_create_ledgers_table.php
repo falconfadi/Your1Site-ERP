@@ -19,7 +19,7 @@ class CreateLedgersTable extends Migration
         Schema::create('ledgers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Cashier::class);
-            $table->foreignIdFor(User::class,'created_by');
+            $table->foreignIdFor(User::class, 'created_by');
             $table->integer('start_balance');
             $table->integer('end_balance');
             $table->string('note')->nullable();

@@ -27,14 +27,14 @@ class MaterialSale extends Pivot
     {
         return $this->belongsTo(Unit::class);
     }
-    
+
     public function currency()
     {
         return $this->belongsTo(Currency::class);
     }
-    
+
     public function rateTo()
     {
-        return $this->belongsTo(Currency::class,'rate_to');
+        return $this->belongsTo(Currency::class, 'rate_to');
     }
 }
