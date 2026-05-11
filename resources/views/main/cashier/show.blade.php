@@ -10,7 +10,7 @@
             <h4 class=""> {{ __('locale.Transactions') }} </h4>
             <div class="d-flex justify-content-around gap-1">
 
-                <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="modal"
+                {{-- <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="modal"
                     data-bs-target="#moneyForm{{ $cashier->id }}">
                     {{ __('locale.Transfers') }}
                 </button>
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 @if (count($bills) > 0)
                     <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="modal"

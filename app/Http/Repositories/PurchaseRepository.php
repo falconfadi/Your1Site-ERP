@@ -2,7 +2,7 @@
 
 namespace App\Http\Repositories;
 
-use App\Http\Repositories\Inventory\InventoryRepository;
+use App\Http\Repositories\InventoryRepository;
 use App\Models\Purchase;
 use Illuminate\Support\Str;
 

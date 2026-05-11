@@ -34,12 +34,11 @@ class SaleController extends BaseController
     public function store(Request $request)
     {
         SaleValidator::validate($request);
-        // try {
-        $sale = $this->repo->storeSale($request);
-
-        // } catch (\Throwable $th) {
-        //     return back()->with('error', $th->getMessage());
-        // }
+        try {
+            $sale = $this->repo->storeSale($request);
+        } catch (\Throwable $th) {
+            return back()->with('error', $th->getMessage());
+        }
         return redirect()
             ->route('sale.show', ['id' => $sale->id])
             ->with('success', 'Sale Created');

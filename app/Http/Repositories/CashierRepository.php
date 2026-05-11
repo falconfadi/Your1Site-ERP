@@ -2,7 +2,7 @@
 
 namespace App\Http\Repositories;
 
-use App\Http\Repositories\Transaction\TransactionRepository;
+use App\Http\Repositories\TransactionRepository;
 use App\Models\Cashier;
 use App\Models\Manufacturing;
 
@@ -51,7 +51,7 @@ class CashierRepository extends BaseRepository
     public function transaction($cashier_id, $type, $id, $amount)
     {
         try {
-            $transaction = new TransactionRepository;
+            $transaction = new TransactionRepository();
             $transaction->setCashier($cashier_id)
                 ->setBelongTo($type, $id)
                 ->createTransaction(auth()->id(), $amount);
@@ -68,7 +68,7 @@ class CashierRepository extends BaseRepository
     public function transfers($transaction_id, $amount)
     {
         try {
-            $transaction = new TransactionRepository;
+            $transaction = new TransactionRepository();
             $transaction->setTransaction($transaction_id)->transfer($amount, auth()->id());
         } catch (\Exception $e) {
             return ['error', $e->getMessage()];

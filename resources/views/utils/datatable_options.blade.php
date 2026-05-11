@@ -11,9 +11,7 @@
             @foreach ($options as $option)
                 <a href={{$option['route'] ?? '#'}}
                 @if($option['name'] == 'Delete')
-                    onclick="
-                    if(!confirm('Are You sure?')){event.preventDefault() }
-                    "
+                    onclick=" if(!confirm('Are You sure?')){event.preventDefault() } "
                 @endif
                 class = "dropdown-item {{ $option['class'] ?? ''}}" >
                     <i class='me-1 fa {{$option['icon'] ?? 'fa-circle-thin'}}'></i>

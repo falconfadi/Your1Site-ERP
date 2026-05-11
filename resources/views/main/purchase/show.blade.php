@@ -13,7 +13,7 @@
                         <div class="card-head row w-100">
                             <div class="col-2">
                                 <button
-                                    class="btn btn-sm  btn-primary w-100 {{ $purchase->bill->status == 0 ?: 'disabled' }}"
+                                    class="btn btn-sm  btn-primary w-100 {{ $purchase->bill?->status == 0 ?: 'disabled' }}"
                                     data-bs-toggle="modal" type="button" data-bs-target="#addItem">
                                     {{ __('locale.Add Item') }}
                                 </button>
@@ -31,25 +31,25 @@
                             <div class="col-6 px-auto">
                                 <button type="button"
                                     class="btn btn-sm btn-success
-                                    {{ $purchase->bill->status == 0 && $purchase->materials()->count() > 0 ?: 'disabled' }}"
+                                    {{ $purchase->bill?->status == 0 && $purchase->materials()->count() > 0 ?: 'disabled' }}"
                                     onclick="document.getElementById('savePurchaseForm').submit();">
                                     {{ __('locale.Save') }}
                                 </button>
                                 <button type="button"
                                     class="btn btn-sm btn-outline-primary 
-                                    {{ $purchase->bill->status == 1 ? 'btn-primary' : 'disabled' }}"
+                                    {{ $purchase->bill?->status == 1 ? 'btn-primary' : 'disabled' }}"
                                     onclick="document.getElementById('checkPurchaseForm').submit();">
                                     {{ __('locale.Check') }}
                                 </button>
                                 <button type="button"
                                     class="btn btn-sm btn-outline-primary 
-                                    {{ $purchase->bill->status == 2 ? 'btn-primary' : 'disabled' }}"
+                                    {{ $purchase->bill?->status == 2 ? 'btn-primary' : 'disabled' }}"
                                     onclick="document.getElementById('auditPurchaseForm').submit();">
                                     {{ __('locale.Audit') }}
                                 </button>
                                 <button type="button"
                                     class="btn btn-sm btn-outline-danger 
-                                    {{ $purchase->bill->status == 0 ?: 'disabled' }}"
+                                    {{ $purchase->bill?->status == 0 ?: 'disabled' }}"
                                     onclick="document.getElementById('deletePurchaseForm').submit();">
                                     {{ __('locale.Delete') }}
                                 </button>
@@ -74,7 +74,7 @@
                             <div class="col-4 row">
                                 <div class="col-4">
                                     @php
-                                        $color = match ($purchase->bill->status) {
+                                        $color = match ($purchase->bill?->status) {
                                             0 => 'danger',
                                             1 => 'success',
                                             2 => 'info',
@@ -82,7 +82,7 @@
                                         };
                                     @endphp
                                     <span class="badge badge-light-{{ $color }}">
-                                        {{ $purchase->bill->get_status }}
+                                        {{ $purchase->bill?->get_status }}
                                     </span>
                                 </div>
                                 <div class="col-4">
@@ -172,7 +172,7 @@
                                                         <i data-feather="more-vertical"></i>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item"
+                                                        <a class="dropdown-item {{ $purchase->bill?->status == 0 ? '' : 'disabled' }}"
                                                             onclick="document.getElementById('purchaseDeleteMaterial').submit();">
                                                             <i data-feather="trash" class="me-50"></i>
                                                             <span>Delete</span>

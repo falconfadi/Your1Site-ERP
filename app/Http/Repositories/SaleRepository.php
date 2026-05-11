@@ -3,7 +3,7 @@
 namespace App\Http\Repositories;
 
 use App\Helpers\Helper;
-use App\Http\Repositories\Inventory\InventoryRepository;
+use App\Http\Repositories\InventoryRepository;
 use App\Models\Sale;
 use Illuminate\Support\Str;
 

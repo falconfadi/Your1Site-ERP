@@ -13,7 +13,7 @@
                         <div class="card-head row w-100">
                             <div class="col-2">
                                 <button
-                                    class="btn btn-sm  btn-primary w-100 {{ $sale->bill->status == 0 ?: 'disabled' }}"
+                                    class="btn btn-sm  btn-primary w-100 {{ $sale->bill?->status == 0 ?: 'disabled' }}"
                                     data-bs-toggle="modal" type="button" data-bs-target="#addItem">
                                     {{ __('locale.Add Item') }}
                                 </button>
@@ -30,25 +30,25 @@
                             <div class="col-6 px-auto">
                                 <button type="button"
                                     class="btn btn-sm btn-success
-                                    {{ $sale->bill->status == 0 && $sale->materials()->count() > 0 ?: 'disabled' }}"
+                                    {{ $sale->bill?->status == 0 && $sale->materials()->count() > 0 ?: 'disabled' }}"
                                     onclick="document.getElementById('saveSaleForm').submit();">
                                     {{ __('locale.Save') }}
                                 </button>
                                 <button type="button"
                                     class="btn btn-sm btn-outline-primary 
-                                    {{ $sale->bill->status == 1 ? 'btn-primary' : 'disabled' }}"
+                                    {{ $sale->bill?->status == 1 ? 'btn-primary' : 'disabled' }}"
                                     onclick="document.getElementById('checkSaleForm').submit();">
                                     {{ __('locale.Check') }}
                                 </button>
                                 <button type="button"
                                     class="btn btn-sm btn-outline-primary 
-                                    {{ $sale->bill->status == 2 ? 'btn-primary' : 'disabled' }}"
+                                    {{ $sale->bill?->status == 2 ? 'btn-primary' : 'disabled' }}"
                                     onclick="document.getElementById('auditSaleForm').submit();">
                                     {{ __('locale.Audit') }}
                                 </button>
                                 <button type="button"
                                     class="btn btn-sm btn-outline-danger 
-                                    {{ $sale->bill->status == 0 ?: 'disabled' }}"
+                                    {{ $sale->bill?->status == 0 ?: 'disabled' }}"
                                     onclick="document.getElementById('deleteSaleForm').submit();">
                                     {{ __('locale.Delete') }}
                                 </button>
@@ -72,7 +72,7 @@
                             <div class="col-4 row">
                                 <div class="col-4">
                                     @php
-                                        $color = match ($sale->bill->status) {
+                                        $color = match ($sale->bill?->status) {
                                             0 => 'danger',
                                             1 => 'success',
                                             2 => 'info',
@@ -80,7 +80,7 @@
                                         };
                                     @endphp
                                     <span class="badge badge-light-{{ $color }}">
-                                        {{ $sale->bill->get_status }}
+                                        {{ $sale->bill?->get_status }}
                                     </span>
                                 </div>
                                 <div class="col-4">

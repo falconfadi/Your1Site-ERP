@@ -26,7 +26,7 @@
                       class="form-control @error('fullname') border-danger @enderror"
                       name="full_name"
                       placeholder="{{__('locale.Full Name')}}"
-                      value="{{old('fullname')}}"
+                      value="{{old('full_name')}}"
                       required
                       tabindex="1"/>
                   </div>
