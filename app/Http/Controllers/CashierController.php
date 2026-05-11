@@ -56,9 +56,12 @@ class CashierController extends Controller
 
     public function delete($id)
     {
-        $this->repo->delete($id);
-
-        return redirect()->route('cashier.all')->with('success', 'Cashier is deleted');
+        $cashier = $this->repo->find($id);
+        if($cashier->transactions()->count() == 0 && !$cashier->is_default){
+            $this->repo->delete($id);
+            return redirect()->route('cashier.all')->with('success', 'Cashier is deleted');
+        }
+        return redirect()->back()->with('error', 'Can not delete cashier');
     }
 
     public function transaction(Request $request)

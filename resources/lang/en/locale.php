@@ -375,7 +375,7 @@ return [
     'Today' => 'Today',
     'Credit' => 'Credit',
     'Debit' => 'Debit',
-
+    'Not Found'=>'Not Found',
     'To' => 'To',
     'On' => 'On',
     'Stats' => 'Statistics',
